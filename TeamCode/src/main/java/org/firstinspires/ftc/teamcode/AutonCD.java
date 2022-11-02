@@ -42,16 +42,105 @@ public class AutonCD extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        RobotHardware robot       = new RobotHardware(HardwareMap);
+        RobotHardware robot    = new RobotHardware(HardwareMap);
 
         // Wait for the game to start (driver presses PLAY)
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
         waitForStart();
-        runtime.reset();
 
-        // run until the end of the match (driver presses STOP)
+        // run once in the match
         telemetry.addData("Status", "Run Time: " + runtime.toString());
         telemetry.update();
-    }}
+        // go in front of da high junction usinnng da move functions
+        //go
+    }
+
+    void MoveForward(double pwr, double sleepTime){
+        robot.front_left.setPower(pwr);
+        robot.front_right.setPower(pwr);
+        robot.back_left.setPower(pwr);
+        robot.back_right.setPower(pwr);
+        telemetry.sleep(sleepTime);
+        robot.front_left.setPower(0);
+        robot.front_right.setPower(0);
+        robot.back_left.setPower(0);
+        robot.back_right.setPower(0);
+    }
+    void MoveLeft(double pwr, double sleepTime){
+        robot.front_left.setPower(-pwr);
+        robot.front_right.setPower(pwr);
+        robot.back_left.setPower(pwr);
+        robot.back_right.setPower(-pwr); 
+        telemetry.sleep(sleepTime);
+        robot.front_left.setPower(0);
+        robot.front_right.setPower(0);
+        robot.back_left.setPower(0);
+        robot.back_right.setPower(0);
+    }
+    void MoveRight(double pwr, double sleepTime){
+        robot.front_left.setPower(pwr);
+        robot.front_right.setPower(-pwr);
+        robot.back_left.setPower(-pwr);
+        robot.back_right.setPower(pwr);
+        telemetry.sleep(sleepTime);
+        robot.front_left.setPower(0);
+        robot.front_right.setPower(0);
+        robot.back_left.setPower(0);
+        robot.back_right.setPower(0);
+    }
+    void MoveBack(double pwr, double sleepTime){
+        robot.front_left.setPower(-pwr);
+        robot.front_right.setPower(-pwr);
+        robot.back_left.setPower(-pwr);
+        robot.back_right.setPower(-pwr);
+        telemetry.sleep(sleepTime);
+        robot.front_left.setPower(0);
+        robot.front_right.setPower(0);
+        robot.back_left.setPower(0);
+        robot.back_right.setPower(0);
+    }
+    
+    
+    void linSlide(double pwr){
+        slide.setPower(pwr);
+    }  
+    
+    void contractClaw(double open,double sleepTime){
+        robot.claw.setPosition(open);
+        telemetry.sleep(sleepTime);
+    }
+    
+    void medJunc(double sleepTime, double pwr){
+        //open and close the claw
+        //0 for open & 100 for close
+        telemetry.sleep(sleepTime);
+        contractClaw(100,100);
+        //Bring Linear Slide Up
+        linSlide(pwr);
+        telemetry.sleep(sleepTime);
+        contractClaw(0,100);
+        linSlide(0);
+    }
+
+    //computer vision functoin then runn park with site!!!!
+
+    void park(string site){
+        if(site=="a"){
+            //go to a
+            MoveLeft(0.6, 100);
+            MoveForward(0.6, 100);
+        }
+        else if(site=="b"){
+            //go to b
+            MoveRight(0.6, 100);
+            MoveForward(0.6, 100);
+        }
+        if(site=="c"){
+            //go to c
+            MoveForward(0.6, 100);
+        }
+    }
+    
+}

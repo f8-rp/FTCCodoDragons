@@ -34,25 +34,6 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-/**
- * This file works in conjunction with the External Hardware Class sample called: ConceptExternalHardwareClass.java
- * Please read the explanations in that Sample about how to use this class definition.
- *
- * This file defines a Java Class that performs all the setup and configuration for a sample robot's hardware (motors and sensors).
- * It assumes three motors (left_drive, right_drive and arm) and two servos (left_hand and right_hand)
- *
- * This one file/class can be used by ALL of your OpModes without having to cut & paste the code each time.
- *
- * Where possible, the actual hardware objects are "abstracted" (or hidden) so the OpMode code just makes calls into the class,
- * rather than accessing the internal hardware directly. This is why the objects are declared "private".
- *
- * Use Android Studio to Copy this Class, and Paste it into your team's code folder with *exactly the same name*.
- *
- * Or.. In OnBot Java, add a new file named RobotHardware.java, drawing from this Sample; select Not an OpMode.
- * Also add a new OpMode, drawing from the Sample ConceptExternalHardwareClass.java; select TeleOp.
- *
- */
-
 public class HardwareMap {
 
     /* Declare OpMode members. */
