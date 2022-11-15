@@ -13,5 +13,5 @@ Avik <br>
 Reeva <br>
 Sahithi <br>
 
-##IF YOU ARE SHAURYA PLEASE LEAVE
+## IF YOU ARE SHAURYA PLEASE LEAVE
 no crtl+c and ctrl+v
