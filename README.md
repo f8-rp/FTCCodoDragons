@@ -11,4 +11,7 @@ Isabel <br>
 Laasya <br>
 Avik <br>
 Reeva <br>
-Sahithi
+Sahithi <br>
+
+##IF YOU ARE SHAURYA PLEASE LEAVE
+no crtl+c and ctrl+v
